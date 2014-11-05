@@ -2,8 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using ExtractDiffrenceAddress.FormatAddress.Repositories;
-
-using ExtractDiffrenceAddress.GenrateDB.Repositories;
+using ExtractDiffrenceAddress.Utils;
 
 namespace ExtractDiffrenceAddressTest
 {
@@ -13,7 +12,18 @@ namespace ExtractDiffrenceAddressTest
         [TestMethod]
         public void TestMethod1()
         {
-            var repo = new ThisFiscalYearRepository(@"C:\01_Hokkaido.accdb","output");
+            var repo = new NeighborhoodRepository(@"C:\work\03_Iwate_output.db");
+
+            var records = repo.FindAll();
+
+            //var banchi = AddressCodeUtil.GetBanchi(records[0].FormatLog);
+
+
+            records.ForEach(x => Console.WriteLine(x.ExtractedBanchi));
+
+            Console.WriteLine("");
         }
+
+
     }
 }

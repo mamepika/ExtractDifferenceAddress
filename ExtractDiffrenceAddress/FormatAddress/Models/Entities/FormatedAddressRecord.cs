@@ -103,5 +103,29 @@ namespace ExtractDiffrenceAddress.FormatAddress.Models.Entities
                 return merge;
             }
         }
-    }
+        public string ExtractedBanchi
+        {
+            get
+            {
+                var logs = FormatLog.Split('|').ToList();
+                var work = logs.Find(l => l.IndexOf("FL00") > 0);
+                if (work != null)
+                {
+                    if (work.IndexOf("(地)") > 0)
+                    {
+                        work = work.Replace("(地)", "");
+                    }
+                    var banchi = work.Substring(work.IndexOf("("), work.IndexOf(")") - work.IndexOf("("));
+                    var splitedBanchi = banchi.Split('，');
+                    splitedBanchi[0] = splitedBanchi[0].Replace("(", "");
+
+                    return Microsoft.VisualBasic.Strings.StrConv(splitedBanchi[0], Microsoft.VisualBasic.VbStrConv.Wide, 4);
+                }
+                return "";
+            }
+        }
+        
+        
+        
+        }
 }

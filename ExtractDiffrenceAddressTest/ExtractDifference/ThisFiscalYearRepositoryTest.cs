@@ -16,7 +16,7 @@ namespace ExtractDiffrenceAddressTest
             {
                 var addresses = thisRepo.FindAll("02_hokkaido");
 
-                Assert.AreEqual(363989, addresses.Count);
+                 Assert.AreEqual(363989, addresses.Count);
             }
         }
     }
