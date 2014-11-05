@@ -24,7 +24,7 @@ namespace ExtractDifferenceAddress.FormatAddress.Repositories
 
         private void CreateTable()
         {
-            var query = "CREATE TABLE " + _tableName + "(" +
+            var query = "CREATE TABLE  IF NOT EXISTS " + _tableName + "(" +
                               "IDLocation TEXT(255)," +
                               "Location TEXT(255)," +
                               "ADCD TEXT(255)," +

@@ -23,7 +23,7 @@ namespace ExtractDifferenceAddress.FormatAddress.Repositories
 
         private void CreateTable()
         {
-            var query = "CREATE TABLE " + _tableName + "(" +
+            var query = "CREATE TABLE  IF NOT EXISTS " + _tableName + "(" +
                               "ID TEXT(255) PRIMARY KEY," +
                               "ExtractedBanchi TEXT(255)," +
                               "ChomokuMerge TEXT(255)," +

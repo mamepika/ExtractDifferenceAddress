@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="DataReaderUtil.cs" />
     <Compile Include="Controllers\ExtractDifferenceController.cs" />
+    <Compile Include="FormatAddress\Csv\CreateLocationCsvService.cs" />
     <Compile Include="FormatAddress\Csv\LocationCsvRepository.cs" />
     <Compile Include="FormatAddress\Csv\Models\LocationAnRecord.cs" />
     <Compile Include="FormatAddress\Csv\Models\LocationRecord.cs" />

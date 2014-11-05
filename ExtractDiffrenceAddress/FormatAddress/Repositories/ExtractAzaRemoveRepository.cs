@@ -26,7 +26,7 @@ namespace ExtractDifferenceAddress.FormatAddress.Repositories
 
         public void CreateTable()
         {
-            var query = "CREATE TABLE " + _tableName + "(" +
+            var query = "CREATE TABLE  IF NOT EXISTS " + _tableName + "(" +
                                "ID TEXT(255) PRIMARY KEY," +
                                "ChomokuMerge TEXT(255)," +
                                "IDLocation TEXT(255)," +

@@ -57,34 +57,15 @@ namespace ExtractDifferenceAddress.Views
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var locationCsvRepo = new LocationCsvRepository(@"C:\work\03_iwate_output.db");
+            var dbFiles = System.IO.Directory.GetFiles(folederPathText.Text, "*.db").ToList();
 
-            var records = locationCsvRepo.FindLocation("output");
-
-            using (var writer = new System.IO.StreamWriter(@"C:\work\test.csv", true, System.Text.Encoding.GetEncoding("Shift_Jis")))
+            dbFiles.ForEach(db =>
             {
-                records.ForEach(r=>writer.WriteLine(r.ToCsv()));
-            }
+                var createCsvService = new CreateLocationCsvService(db);
+                createCsvService.CreateCsvFile();
+            });
 
-            var locations = locationCsvRepo.FindLocation("Location");
-
-            using (var writer = new System.IO.StreamWriter(@"C:\work\test.csv", true,System.Text.Encoding.GetEncoding("Shift_Jis")))
-            {
-                locations.ForEach(r => writer.WriteLine(r.ToCsv()));
-            }
-
-            var anRecords = locationCsvRepo.FindLocationAn("output");
-
-            using (var writer = new System.IO.StreamWriter(@"C:\work\testAN.csv",true, System.Text.Encoding.GetEncoding("Shift_Jis")))
-            {
-                anRecords.ForEach(r => writer.WriteLine(r.ToCsv()));
-            }
-            var anLocations = locationCsvRepo.FindLocationAn("LocationAN");
-
-            using (var writer = new System.IO.StreamWriter(@"C:\work\testAN.csv",true, System.Text.Encoding.GetEncoding("Shift_Jis")))
-            {
-                anLocations.ForEach(r => writer.WriteLine(r.ToCsv()));
-            }
+            MessageBox.Show("処理が完了しました");
         }
 
 

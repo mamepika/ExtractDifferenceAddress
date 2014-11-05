@@ -27,7 +27,7 @@ namespace ExtractDifferenceAddress.FormatAddress.Repositories
 
         private void CreateTable()
         {
-            var query = "CREATE TABLE " + _tableName + "(" +
+            var query = "CREATE TABLE IF NOT EXISTS " + _tableName + "(" +
                               "ID TEXT(255) PRIMARY KEY," +
                               "IDLocation TEXT(255)," +
                               "Location TEXT(255)," +
@@ -101,8 +101,6 @@ namespace ExtractDifferenceAddress.FormatAddress.Repositories
                 return Convert(dbCommand.ExecuteReader());
             }
         }
-
-
 
         private List<FormatedAddressRecord> Convert(SQLiteDataReader dataReader)
         {

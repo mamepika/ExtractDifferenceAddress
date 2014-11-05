@@ -70,6 +70,7 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
             }
             return records;
         }
+
         /// <summary>
         /// LocationオブジェクトのListへの変換処理
         /// </summary>
@@ -103,9 +104,13 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
                 records.Add(record);
             }
             return records;
-        }            
+        }
 
+        private bool IsExists(string tableName)
+        {
+            var query = "select count(*) from sqlite_master where type='table' and name='" + tableName +"';";
 
+        }
         private void ExecuteQuery(string query)
         {
             using (var dbCommand = new SQLiteCommand())
