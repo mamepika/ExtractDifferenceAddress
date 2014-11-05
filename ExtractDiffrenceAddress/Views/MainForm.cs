@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using ExtractDiffrenceAddress.Servicies;
-using ExtractDiffrenceAddress.Controllers;
+using ExtractDifferenceAddress.Servicies;
+using ExtractDifferenceAddress.Controllers;
 
-namespace ExtractDiffrenceAddress
+namespace ExtractDifferenceAddress
 {
     public partial class MainForm : Form
     {

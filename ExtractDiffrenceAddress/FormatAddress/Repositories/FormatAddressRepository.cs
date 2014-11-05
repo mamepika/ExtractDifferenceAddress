@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
-using ExtractDiffrenceAddress.FormatAddress.Models.Entities;
+using ExtractDifferenceAddress.FormatAddress.Models.Entities;
 
-namespace ExtractDiffrenceAddress.FormatAddress.Repositories
+namespace ExtractDifferenceAddress.FormatAddress.Repositories
 {
     /// <summary>
     /// 住所正規化済みレコードのリポジトリクラス
@@ -66,7 +66,12 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
             }
         }
 
-        public void Add(List<FormatedAddressRecord> records,string tableName)
+        /// <summary>
+        /// 複数のレコードを追加する
+        /// </summary>
+        /// <param name="records"></param>
+        /// <param name="tableName"></param>
+        public void Add(List<FormatedAddressRecord> records)
         {
             using (var transaction = sqlConnection.BeginTransaction())
             {
@@ -75,7 +80,7 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
                 sqlCommand.Connection = sqlConnection;
                 records.ForEach(rec =>
                 {
-                    sqlCommand.CommandText = CreateInsertQuery(rec,tableName);
+                    sqlCommand.CommandText = CreateInsertQuery(rec);
                     sqlCommand.ExecuteNonQuery();
                 });
                 transaction.Commit();
@@ -83,10 +88,14 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
             }
         }
 
-
-        public void Add(FormatedAddressRecord record,string tableName)
+        /// <summary>
+        /// 一つのレコードを追加する
+        /// </summary>
+        /// <param name="record"></param>
+        /// <param name="tableName"></param>
+        public void Add(FormatedAddressRecord record)
         {
-            ExecuteQuery(CreateInsertQuery(record,tableName));
+            ExecuteQuery(CreateInsertQuery(record));
         }
 
         /// <summary>
@@ -149,9 +158,9 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
         }
 
 
-        private string CreateInsertQuery(FormatedAddressRecord record,string tableName)
+        private string CreateInsertQuery(FormatedAddressRecord record)
         {
-            var query = "INSERT INTO " + tableName + "(" +
+            var query = "INSERT INTO " + _tableName + "(" +
                    "[IDLocation]," +
                    "[Location]," +
                    "[layer_code]," +

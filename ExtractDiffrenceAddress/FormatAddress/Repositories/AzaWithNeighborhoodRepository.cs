@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
-using ExtractDiffrenceAddress.FormatAddress.Models.Entities;
+using ExtractDifferenceAddress.FormatAddress.Models.Entities;
 
-namespace ExtractDiffrenceAddress.FormatAddress.Repositories
+namespace ExtractDifferenceAddress.FormatAddress.Repositories
 {
     /// <summary>
     /// 字・大字除去、近傍検索抽出レコードリポジトリ

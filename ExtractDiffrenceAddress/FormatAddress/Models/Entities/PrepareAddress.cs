@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 
-namespace ExtractDiffrenceAddress.FormatAddress.Models.Entities
+namespace ExtractDifferenceAddress.FormatAddress.Models.Entities
 {
     /// <summary>
     /// 整形後住所
@@ -16,19 +16,7 @@ namespace ExtractDiffrenceAddress.FormatAddress.Models.Entities
 
         public string Location { get; set; }
 
-        public string layer_code { get; set; }
-
-        public string ADCD { get; set; }
-
-        public string Kanj_Tod { get; set; }
-
-        public string Kanj_Shi { get; set; }
-
-        public string Kanj_Ooa { get; set; }
-
-        public string Kanj_Aza { get; set; }
-
-        public string Address1 { get; set; }
+        public string PostalCode { get; set; }
 
         public string MapCode { get; set; }
 
@@ -45,6 +33,10 @@ namespace ExtractDiffrenceAddress.FormatAddress.Models.Entities
         public string ReadingTown { get; set; }
 
         public string ReadingChome { get; set; }
+
+        public string AddressCode { get; set; }
+
+        public string FormatedAddress { get; set; }
 
         public string HiraCity
         {
@@ -65,6 +57,14 @@ namespace ExtractDiffrenceAddress.FormatAddress.Models.Entities
             get
             {
                 return Microsoft.VisualBasic.Strings.StrConv(ReadingChome, Microsoft.VisualBasic.VbStrConv.Hiragana);
+            }
+        }
+
+        public string IDTown
+        {
+            get
+            {
+                return "0" + AddressCode.Substring(0, 2);
             }
         }
     }

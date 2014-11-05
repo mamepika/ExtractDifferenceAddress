@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using ExtractDiffrenceAddress.Repositories;
-using ExtractDiffrenceAddress.Models;
+using ExtractDifferenceAddress.Repositories;
+using ExtractDifferenceAddress.Models;
 using System.Windows.Forms;
 
-namespace ExtractDiffrenceAddress.Servicies
+namespace ExtractDifferenceAddress.Servicies
 {
     public class ExtractDifferenceService
     {

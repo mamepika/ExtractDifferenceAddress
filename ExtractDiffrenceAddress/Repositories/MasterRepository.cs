@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
-using ExtractDiffrenceAddress.Models;
+using ExtractDifferenceAddress.Models;
 
-namespace ExtractDiffrenceAddress.Repositories 
+namespace ExtractDifferenceAddress.Repositories 
 {
     public class MasterRepository : IDisposable
     {

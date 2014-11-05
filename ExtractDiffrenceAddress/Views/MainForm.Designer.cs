@@ -1,4 +1,4 @@
-﻿namespace ExtractDiffrenceAddress
+﻿namespace ExtractDifferenceAddress
 {
     partial class MainForm
     {

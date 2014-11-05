@@ -7,8 +7,8 @@
     <ProjectGuid>{99A95C41-74FE-44C0-8A35-B9F0AB1A6DA6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExtractDiffrenceAddress</RootNamespace>
-    <AssemblyName>ExtractDiffrenceAddress</AssemblyName>
+    <RootNamespace>ExtractDifferenceAddress</RootNamespace>
+    <AssemblyName>ExtractDifferenceAddress</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>30f8cb03</NuGetPackageImportStamp>
@@ -67,13 +67,15 @@
   <ItemGroup>
     <Compile Include="DataReaderUtil.cs" />
     <Compile Include="Controllers\ExtractDifferenceController.cs" />
-    <Compile Include="ExtractNeighborhoodService.cs" />
+    <Compile Include="FormatAddress\Servicies\ExtractNeighborhoodService.cs" />
     <Compile Include="FormatAddress\ExportAddressServiceFacade.cs" />
+    <Compile Include="FormatAddress\Repositories\LocationRepository.cs" />
     <Compile Include="FormatAddress\Servicies\ExportAddressService.cs" />
     <Compile Include="FormatAddress\Servicies\ExtractAzaRemoveService.cs" />
     <Compile Include="FormatAddress\Servicies\ExtractBanchiService.cs" />
     <Compile Include="FormatAddress\Servicies\LocationAnService.cs" />
     <Compile Include="FormatAddress\Models\Entities\PrepareAddress.cs" />
+    <Compile Include="FormatAddress\Servicies\LocationService.cs" />
     <Compile Include="FormatAddress\Servicies\PrepareAddressService.cs" />
     <Compile Include="FormatAddress\Servicies\RemoveFormatAddressLogService.cs" />
     <Compile Include="FormatAddress\Servicies\FormatAddressRegisterService.cs" />
@@ -152,6 +154,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -167,7 +170,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="FormatAddress\Csv\" />
+  </ItemGroup>
   <ItemGroup>
     <COMReference Include="ADOX">
       <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>

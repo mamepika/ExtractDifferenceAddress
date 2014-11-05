@@ -3,34 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-
 using ExtractDifferenceAddress.FormatAddress.Models;
 using ExtractDifferenceAddress.FormatAddress.Repositories;
 
+
 namespace ExtractDifferenceAddress.FormatAddress.Servicies
 {
-    public class ExportAddressService
+    public class LocationService
     {
-
         private string _dbFilePath;
 
-        public ExportAddressService(string dbFilePath)
+        public LocationService(string dbFilePath)
         {
             _dbFilePath = dbFilePath;
         }
 
-        public void ExportAddress()
+        public void ExportLocation()
         {
-            using (var prepareRepo = new PrepareAddressRepository(_dbFilePath))
+            using (var exportRepo = new ExportAddressRepository(_dbFilePath))
             {
-                var records = prepareRepo.FindByUnion();
+                var records = exportRepo.FindAll();
 
-                using (var exportRepo = new ExportAddressRepository(_dbFilePath))
+                using (var locationRepo = new LocationRepository(_dbFilePath))
                 {
-                    exportRepo.Add(records);
+                    locationRepo.Add(records);
                 }
             }
         }
+
     }
 }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExtractDiffrenceAddress.FormatAddress.Models;
-using ExtractDiffrenceAddress.FormatAddress.Repositories;
+using ExtractDifferenceAddress.FormatAddress.Models;
+using ExtractDifferenceAddress.FormatAddress.Repositories;
 
-namespace ExtractDiffrenceAddress.FormatAddress.Servicies
+namespace ExtractDifferenceAddress.FormatAddress.Servicies
 {
     public class LocationAnService
     {
@@ -24,9 +24,9 @@ namespace ExtractDiffrenceAddress.FormatAddress.Servicies
             {
                 var records = exportRepo.FindAll();
 
-                using (var locationRepo = new LocationAnRepository(_dbFilePath))
+                using (var locationAnRepo = new LocationAnRepository(_dbFilePath))
                 {
-                    locationRepo.Add(records);
+                    locationAnRepo.Add(records);
                 }
             }
         }

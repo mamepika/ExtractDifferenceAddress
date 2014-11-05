@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic.FileIO;
 
-using ExtractDiffrenceAddress.FormatAddress.Models.Entities;
+using ExtractDifferenceAddress.FormatAddress.Models.Entities;
 
-namespace ExtractDiffrenceAddress.FormatAddress.Models
+namespace ExtractDifferenceAddress.FormatAddress.Models
 {
     public class FormatedAddressCsvReader
     {

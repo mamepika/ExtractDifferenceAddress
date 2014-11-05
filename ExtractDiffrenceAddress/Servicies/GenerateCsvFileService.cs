@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using ExtractDiffrenceAddress.Repositories;
-using ExtractDiffrenceAddress.Models;
+using ExtractDifferenceAddress.Repositories;
+using ExtractDifferenceAddress.Models;
 
-namespace ExtractDiffrenceAddress.Servicies
+namespace ExtractDifferenceAddress.Servicies
 {
     public class GenerateCsvFileService
     {

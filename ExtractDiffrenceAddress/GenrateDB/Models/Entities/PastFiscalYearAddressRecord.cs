@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExtractDiffrenceAddress.GenrateDB.Models.Entities
+namespace ExtractDifferenceAddress.GenrateDB.Models.Entities
 {
     public class PastFiscalYearAddressRecord
     {

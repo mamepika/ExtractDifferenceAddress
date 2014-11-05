@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
-using ExtractDiffrenceAddress.Models;
+using ExtractDifferenceAddress.Models;
 
-namespace ExtractDiffrenceAddress.Repositories
+namespace ExtractDifferenceAddress.Repositories
 {
     /// <summary>
     /// 今年度の住所レコード用リポジトリクラス

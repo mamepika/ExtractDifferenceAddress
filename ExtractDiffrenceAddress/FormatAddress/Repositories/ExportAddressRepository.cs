@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
-using ExtractDiffrenceAddress.FormatAddress.Models.Entities;
+using ExtractDifferenceAddress.FormatAddress.Models.Entities;
 
-namespace ExtractDiffrenceAddress.FormatAddress.Repositories
+namespace ExtractDifferenceAddress.FormatAddress.Repositories
 {
 
     public class ExportAddressRepository : IDisposable
@@ -27,18 +27,14 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
             var query = "CREATE TABLE " + _tableName + "(" +
                               "IDLocation TEXT(255)," +
                               "Location TEXT(255)," +
-                              "layer_code TEXT(255)," +
                               "ADCD TEXT(255)," +
-                              "Kanj_Tod TEXT(255)," +
-                              "Kanj_Shi TEXT(255)," +
-                              "Kanj_Ooa TEXT(255)," +
-                              "Kanj_Aza TEXT(255)," +
-                              "Address1 TEXT(255)," +
+                              "PostalCode TEXT(255)," +
                               "MapCode TEXT(255)," +
                               "X TEXT(255)," +
                               "Y TEXT(255)," +
                               "X_meter TEXT(255)," +
                               "Y_meter TEXT(255)," +
+                              "FormatedAddress TEXT(255)," +
                               "ReadingCity TEXT(255)," +
                               "ReadingTown TEXT(255)," +
                               "ReadingChome TEXT(255))";
@@ -71,40 +67,32 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
         private string CreateInsertQuery(PrepareAddress address)
         {
             var query = "INSERT INTO " + _tableName + "(" +
-                   "[IDLocation]," +
-                   "[Location]," +
-                   "[layer_code]," +
-                   "[ADCD] ," +
-                   "[Kanj_Tod] ," +
-                   "[Kanj_Shi] ," +
-                   "[Kanj_Ooa] ," +
-                   "[Kanj_Aza] ," +
-                   "[Address1] ," +
-                   "[MapCode] ," +
-                   "[X] ," +
-                   "[Y] ," +
-                   "[X_meter] ," +
-                   "[Y_meter] ," +
-                   "[ReadingCity] ," +
-                   "[ReadingTown] ," +
-                   "[ReadingChome] )VALUES(" +
-                   "'" + address.IDLocation + "'," +
-                   "'" + address.Location + "'," +
-                   "'" + address.layer_code + "'," +
-                   "'" + address.ADCD + "'," +
-                   "'" + address.Kanj_Tod + "'," +
-                   "'" + address.Kanj_Shi + "'," +
-                   "'" + address.Kanj_Ooa + "'," +
-                   "'" + address.Kanj_Aza + "'," +
-                   "'" + address.Address1 + "'," +
-                   "'" + address.MapCode + "'," +
-                   "'" + address.X + "'," +
-                   "'" + address.Y + "'," +
-                   "'" + address.X_meter + "'," +
-                   "'" + address.Y_meter + "'," +
-                   "'" + address.ReadingCity + "'," +
-                   "'" + address.ReadingTown + "'," +
-                   "'" + address.ReadingChome + "')";
+                               "[IDLocation]," +
+                               "[Location]," +
+                               "[ADCD]," +
+                               "[PostalCode] ," +
+                               "[MapCode] ," +
+                               "[X] ," +
+                               "[Y] ," +
+                               "[X_meter] ," +
+                               "[Y_meter] ," +
+                               "[FormatedAddress] ," +
+                               "[ReadingCity] ," +
+                               "[ReadingTown] ," +
+                               "[ReadingChome] )VALUES(" +
+                               "'" + address.IDLocation + "'," +
+                               "'" + address.Location + "'," +
+                               "'" + address.AddressCode + "'," +
+                               "'" + address.PostalCode + "'," +
+                               "'" + address.MapCode + "'," +
+                               "'" + address.X + "'," +
+                               "'" + address.Y + "'," +
+                               "'" + address.X_meter + "'," +
+                               "'" + address.Y_meter + "'," +
+                               "'" + address.FormatedAddress + "'," +
+                               "'" + address.ReadingCity + "'," +
+                               "'" + address.ReadingTown + "'," +
+                               "'" + address.ReadingChome + "')";
             return query;
         }
 
@@ -130,14 +118,8 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
                 var record = new PrepareAddress();
                 record.IDLocation = dataReader["IDLocation"].ToString();
                 record.Location = dataReader["Location"].ToString();
-                record.layer_code = dataReader["layer_code"].ToString();
-                record.ADCD = dataReader["ADCD"].ToString();
-                record.Kanj_Tod = dataReader["Kanj_Tod"].ToString();
-                record.Kanj_Shi = dataReader["Kanj_Shi"].ToString();
-                record.Kanj_Ooa = dataReader["Kanj_Ooa"].ToString();
-                record.Kanj_Aza = dataReader["Kanj_Aza"].ToString();
-                record.Address1 = dataReader["Address1"].ToString();
                 record.MapCode = dataReader["MapCode"].ToString();
+                record.PostalCode = dataReader["PostalCode"].ToString(); 
                 record.X = dataReader["X"].ToString();
                 record.Y = dataReader["Y"].ToString();
                 record.X_meter = dataReader["X_meter"].ToString();
@@ -145,6 +127,8 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
                 record.ReadingCity = dataReader["ReadingCity"].ToString();
                 record.ReadingTown = dataReader["ReadingTown"].ToString();
                 record.ReadingChome = dataReader["ReadingChome"].ToString();
+                record.AddressCode = dataReader["ADCD"].ToString();
+                record.FormatedAddress = dataReader["FormatedAddress"].ToString();
                 records.Add(record);
             }
             return records;

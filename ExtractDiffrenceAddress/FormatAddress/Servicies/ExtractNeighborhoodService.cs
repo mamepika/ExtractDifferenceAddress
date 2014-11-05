@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ExtractDiffrenceAddress.FormatAddress.Models;
-using ExtractDiffrenceAddress.FormatAddress.Repositories;
+using ExtractDifferenceAddress.FormatAddress.Models;
+using ExtractDifferenceAddress.FormatAddress.Repositories;
 
-namespace ExtractDiffrenceAddress
+namespace ExtractDifferenceAddress
 {
     public class ExtractNeighborhoodService
     {

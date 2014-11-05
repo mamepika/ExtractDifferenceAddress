@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExtractDiffrenceAddress.Utils;
-using ExtractDiffrenceAddress.FormatAddress.Models;
-using ExtractDiffrenceAddress.FormatAddress.Models.Entities;
-using ExtractDiffrenceAddress.FormatAddress.Repositories;
+using ExtractDifferenceAddress.Utils;
+using ExtractDifferenceAddress.FormatAddress.Models;
+using ExtractDifferenceAddress.FormatAddress.Models.Entities;
+using ExtractDifferenceAddress.FormatAddress.Repositories;
 
-namespace ExtractDiffrenceAddress.FormatAddress.Servicies
+namespace ExtractDifferenceAddress.FormatAddress.Servicies
 {
     /// <summary>
     /// 住所補間ログ除去サービス

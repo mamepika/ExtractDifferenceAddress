@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExtractDiffrenceAddress.FormatAddress.Models;
-using ExtractDiffrenceAddress.FormatAddress.Repositories;
+using ExtractDifferenceAddress.FormatAddress.Models;
+using ExtractDifferenceAddress.FormatAddress.Repositories;
 
 
-namespace ExtractDiffrenceAddress.FormatAddress.Servicies
+namespace ExtractDifferenceAddress.FormatAddress.Servicies
 {
     /// <summary>
     /// 正規化済の住所レコードを登録するサービスクラス
@@ -34,8 +34,7 @@ namespace ExtractDiffrenceAddress.FormatAddress.Servicies
             using (var formatAddressRepo = new FormatAddressRepository(_dbFilePath,"output"))
             {
                 formatAddressRepo.CreateTable();
-                formatAddressRepo.Add(records,"output");           
-                
+                formatAddressRepo.Add(records);                           
             }
         }
     }

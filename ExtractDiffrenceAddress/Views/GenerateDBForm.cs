@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ExtractDiffrenceAddress.GenrateDB;
-using ExtractDiffrenceAddress.GenrateDB.Models;
+using ExtractDifferenceAddress.GenrateDB;
+using ExtractDifferenceAddress.GenrateDB.Models;
 
-namespace ExtractDiffrenceAddress.Views
+namespace ExtractDifferenceAddress.Views
 {
     public partial class GenerateDBForm : Form
     {

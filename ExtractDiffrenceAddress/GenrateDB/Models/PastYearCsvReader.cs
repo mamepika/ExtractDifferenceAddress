@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic.FileIO;
 
-using ExtractDiffrenceAddress.GenrateDB.Models.Entities;
+using ExtractDifferenceAddress.GenrateDB.Models.Entities;
 
-namespace ExtractDiffrenceAddress.GenrateDB.Models
+namespace ExtractDifferenceAddress.GenrateDB.Models
 {
     public class PastYearCsvReader
     {

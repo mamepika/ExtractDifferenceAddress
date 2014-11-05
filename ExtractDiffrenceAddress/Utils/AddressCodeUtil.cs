@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 
-namespace ExtractDiffrenceAddress.Utils
+namespace ExtractDifferenceAddress.Utils
 {
     public static class AddressCodeUtil
     {

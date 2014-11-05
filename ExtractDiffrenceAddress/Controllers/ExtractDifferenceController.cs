@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ExtractDiffrenceAddress.Servicies;
+using ExtractDifferenceAddress.Servicies;
 
 
-namespace ExtractDiffrenceAddress.Controllers
+namespace ExtractDifferenceAddress.Controllers
 {
     public class ExtractDifferenceController
     {

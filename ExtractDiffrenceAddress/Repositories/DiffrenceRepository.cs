@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
-using ExtractDiffrenceAddress.Models;
+using ExtractDifferenceAddress.Models;
 
-namespace ExtractDiffrenceAddress.Repositories
+namespace ExtractDifferenceAddress.Repositories
 {
     public class DiffrenceRepository : IDisposable
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic.FileIO;
-using ExtractDiffrenceAddress.Models;
+using ExtractDifferenceAddress.Models;
 
-namespace ExtractDiffrenceAddress.GenrateDB.Models
+namespace ExtractDifferenceAddress.GenrateDB.Models
 {
     public class ThisYearCsvReader
     {

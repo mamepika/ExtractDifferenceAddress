@@ -6,30 +6,37 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using ExtractDifferenceAddress.FormatAddress.Models.Entities;
 
+
 namespace ExtractDifferenceAddress.FormatAddress.Repositories
 {
-    public class LocationAnRepository : IDisposable
+    public class LocationRepository : IDisposable
     {
         private SQLiteConnection sqlConnection;
 
-        private string _tableName = "LocationAN";
+        private string _tableName = "Location";
 
-        public LocationAnRepository(string filePath)
+        public LocationRepository(string filePath)
         {
             sqlConnection = new SQLiteConnection("Data Source=" + filePath);
             sqlConnection.Open();
             CreateTable();
         }
 
+
         public void CreateTable()
         {
             var query = "CREATE TABLE " + _tableName + "(" +
-                               "IDLocationAN TEXT(255)," +
                                "IDLocation TEXT(255)," +
                                "Location TEXT(255)," +
                                "IDCountry TEXT(255)," +
-                               "Language TEXT(255)," +
-                               "Manual TEXT(255))";
+                               "IDTown TEXT(255)," +
+                               "PostalCode TEXT(255)," +
+                               "MapCode TEXT(255)," +
+                               "X_meter TEXT(255)," +
+                               "Y_meter TEXT(255)," +
+                               "IDLocationManual TEXT(255)," +
+                               "X TEXT(255)," +
+                               "Y TEXT(255))";
             try
             {
                 ExecuteQuery(query);
@@ -39,8 +46,6 @@ namespace ExtractDifferenceAddress.FormatAddress.Repositories
                 Console.WriteLine(ex.Message);
             }
         }
-
-
         public void Add(List<PrepareAddress> addresses)
         {
             using (var transaction = sqlConnection.BeginTransaction())
@@ -57,30 +62,33 @@ namespace ExtractDifferenceAddress.FormatAddress.Repositories
                 }
             }
         }
-
-        /// <summary>
-        /// インサート用のクエリーを作成する
-        /// </summary>
-        /// <param name="record">インサートするレコード</param>
-        /// <returns></returns>
         private string CreateInsertQuery(PrepareAddress record)
         {
             var query = "INSERT INTO " + _tableName + "(" +
-                               "[IDLocationAN]," +
-                               "[IDLocation]," +
-                               "[Location]," +
-                               "[IDCountry]," +
-                               "[Language]," +
-                               "[Manual])VALUES(" +
-                               "'" + record.IDLocation + "'," +
-                               "'" + record.IDLocation + "'," +
-                               "'" + record.HiraCity + record.HiraTown + record.HiraChome + "'," +
-                               "'1111'," +
-                               "'JPN'," +
-                               "'0')" ;
+                                "[IDLocation]," +
+                                "[Location]," +
+                                "[IDCountry] ," +
+                                "[IDTown] ," +
+                                "[PostalCode] ," +
+                                "[MapCode] ," +
+                                "[X_meter] ," +
+                                "[Y_meter] ," +
+                                "[IDLocationManual] ," +
+                                "[X] ," +
+                                "[Y] )VALUES(" +
+                                "'" + record.IDLocation + "'," +
+                                "'" + record.FormatedAddress.Replace(Utils.AddressCodeUtil.GetPrefectureName(record.AddressCode),"") + "'," +
+                                "'" + "1111" + "'," +
+                                "'" + record.IDTown + "'," +
+                                "'" + record.PostalCode + "'," +
+                                "'" + record.MapCode + "'," +
+                                "'" + record.X_meter + "'," +
+                                "'" + record.Y_meter + "'," +
+                                "'" + "" + "'," +
+                                "'" + record.X + "'," +
+                                "'" + record.Y + "');";
             return query;
         }
-
 
         private void ExecuteQuery(string query)
         {
@@ -96,5 +104,6 @@ namespace ExtractDifferenceAddress.FormatAddress.Repositories
             sqlConnection.Close();
             sqlConnection.Dispose();
         }
+
     }
 }

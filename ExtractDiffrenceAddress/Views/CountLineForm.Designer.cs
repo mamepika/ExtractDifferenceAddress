@@ -1,4 +1,4 @@
-﻿namespace ExtractDiffrenceAddress.Views
+﻿namespace ExtractDifferenceAddress.Views
 {
     partial class CountLineForm
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExtractDiffrenceAddress.FormatAddress.Models
+namespace ExtractDifferenceAddress.FormatAddress.Models
 {
     class FilePath
     {

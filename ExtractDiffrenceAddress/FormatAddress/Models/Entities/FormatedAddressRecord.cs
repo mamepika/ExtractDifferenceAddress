@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 
-namespace ExtractDiffrenceAddress.FormatAddress.Models.Entities
+namespace ExtractDifferenceAddress.FormatAddress.Models.Entities
 {
     /// <summary>
     /// 住所正規化コンバータにより生成されたレコード

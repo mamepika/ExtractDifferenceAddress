@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExtractDiffrenceAddress.GenrateDB.Models
+namespace ExtractDifferenceAddress.GenrateDB.Models
 {
     public class ProcessInfo
     {

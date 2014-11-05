@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExtractDiffrenceAddress.FormatAddress.Servicies;
+using ExtractDifferenceAddress.FormatAddress.Servicies;
 
-namespace ExtractDiffrenceAddress.FormatAddress
+namespace ExtractDifferenceAddress.FormatAddress
 {
     public class ExportAddressServiceFacade
     {
@@ -40,8 +40,11 @@ namespace ExtractDiffrenceAddress.FormatAddress
             var exportService = new ExportAddressService(_dbFilePath);
             exportService.ExportAddress();
 
-            var locationService = new LocationAnService(_dbFilePath);
-            locationService.ExportLocationAn();
+            var locationService = new LocationService(_dbFilePath);
+            locationService.ExportLocation();
+
+            var locationAnService = new LocationAnService(_dbFilePath);
+            locationAnService.ExportLocationAn();
         }
     }
 }

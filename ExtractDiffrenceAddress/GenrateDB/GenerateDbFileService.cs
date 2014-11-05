@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ExtractDiffrenceAddress.GenrateDB.Models;
-using ExtractDiffrenceAddress.GenrateDB.Repositories;
+using ExtractDifferenceAddress.GenrateDB.Models;
+using ExtractDifferenceAddress.GenrateDB.Repositories;
 using ADOX;
 
-namespace ExtractDiffrenceAddress.GenrateDB
+namespace ExtractDifferenceAddress.GenrateDB
 {
     public class GenerateDbFileService
     {

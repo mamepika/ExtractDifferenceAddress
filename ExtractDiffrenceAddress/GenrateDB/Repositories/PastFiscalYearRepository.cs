@@ -6,9 +6,9 @@ using System.Data.OleDb;
 using System.Data;
 using System.Threading.Tasks;
 
-using ExtractDiffrenceAddress.GenrateDB.Models.Entities;
+using ExtractDifferenceAddress.GenrateDB.Models.Entities;
 
-namespace ExtractDiffrenceAddress.GenrateDB.Repositories
+namespace ExtractDifferenceAddress.GenrateDB.Repositories
 {
     public class PastFiscalYearRepository : IDisposable
     {
