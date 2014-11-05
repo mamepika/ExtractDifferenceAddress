@@ -8,6 +8,9 @@ using ExtractDifferenceAddress.FormatAddress.Servicies;
 
 namespace ExtractDifferenceAddress.FormatAddress
 {
+    /// <summary>
+    /// 住所整形処理のファサードクラス
+    /// </summary>
     public class ExportAddressServiceFacade
     {
         private string _dbFilePath;
@@ -16,7 +19,9 @@ namespace ExtractDifferenceAddress.FormatAddress
         {
             _dbFilePath = dbFilePath;
         }
-
+        /// <summary>
+        /// 整形した住所を出力する
+        /// </summary>
         public void ExportAddress()
         {
             var formatService = new RemoveFormatAddressLogService(_dbFilePath);
