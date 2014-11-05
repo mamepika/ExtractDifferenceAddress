@@ -16,7 +16,7 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
     {
         private SQLiteConnection sqlConnection;
 
-                public LocationCsvRepository(string filePath)
+        public LocationCsvRepository(string filePath)
         {
             sqlConnection = new SQLiteConnection("Data Source=" + filePath);
             sqlConnection.Open();
@@ -25,7 +25,7 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
         /// <summary>
         /// LocationのリストをDBから取得する
         /// </summary>
-        /// <param name="tableName"></param>
+        /// <param name="tableName">抽出対象のテーブル名</param>
         /// <returns></returns>
         public List<LocationRecord> FindLocation(string tableName)
         {
@@ -38,6 +38,11 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
             }
         }
 
+        /// <summary>
+        /// LocationANのリストをDBから取得する
+        /// </summary>
+        /// <param name="tableName">抽出対象のテーブル名</param>
+        /// <returns></returns>
         public List<LocationAnRecord> FindLocationAn(string tableName)
         {
             var query = "SELECT * FROM " + tableName;
@@ -49,7 +54,12 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
             }
         }
 
-
+        /// <summary>
+        /// LocationANオブジェクトのListへの変換処理
+        /// </summary>
+        /// <param name="dataReader">変換対象のDB抽出結果</param>
+        /// <param name="tableName">抽出したテーブル名</param>
+        /// <returns></returns>
         public List<LocationAnRecord> ConvertLocationAn(SQLiteDataReader dataReader, string tableName)
         {
             var records = new List<LocationAnRecord>();
@@ -74,7 +84,8 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
         /// <summary>
         /// LocationオブジェクトのListへの変換処理
         /// </summary>
-        /// <param name="dataReader"></param>
+        /// <param name="dataReader">変換対象のDB抽出結果</param>
+        /// <param name="tableName">抽出したテーブル名</param>
         /// <returns></returns>
         private List<LocationRecord> ConvertLocation(SQLiteDataReader dataReader,string tableName)
         {
@@ -106,11 +117,28 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
             return records;
         }
 
+        /// <summary>
+        /// テーブルの有無を取得する
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
         private bool IsExists(string tableName)
         {
             var query = "select count(*) from sqlite_master where type='table' and name='" + tableName +"';";
+            using (var sqlCommand = new SQLiteCommand())
+            {
+                sqlCommand.CommandText = query;
+                sqlCommand.Connection = sqlConnection;
 
+                var count = (int)sqlCommand.ExecuteScalar();
+
+                return (1 == count);
+            }
         }
+        /// <summary>
+        /// クエリーを実行する
+        /// </summary>
+        /// <param name="query">実行されるSQL文</param>
         private void ExecuteQuery(string query)
         {
             using (var dbCommand = new SQLiteCommand())
