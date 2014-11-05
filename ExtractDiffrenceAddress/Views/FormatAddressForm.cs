@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using ExtractDifferenceAddress.FormatAddress;
 using ExtractDifferenceAddress.FormatAddress.Servicies;
+using ExtractDifferenceAddress.FormatAddress.Csv;
 
 namespace ExtractDifferenceAddress.Views
 {
@@ -52,6 +53,38 @@ namespace ExtractDifferenceAddress.Views
                 var facade = new ExportAddressServiceFacade(db);
                 facade.ExportAddress();
             });
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var locationCsvRepo = new LocationCsvRepository(@"C:\work\03_iwate_output.db");
+
+            var records = locationCsvRepo.FindLocation("output");
+
+            using (var writer = new System.IO.StreamWriter(@"C:\work\test.csv", true, System.Text.Encoding.GetEncoding("Shift_Jis")))
+            {
+                records.ForEach(r=>writer.WriteLine(r.ToCsv()));
+            }
+
+            var locations = locationCsvRepo.FindLocation("Location");
+
+            using (var writer = new System.IO.StreamWriter(@"C:\work\test.csv", true,System.Text.Encoding.GetEncoding("Shift_Jis")))
+            {
+                locations.ForEach(r => writer.WriteLine(r.ToCsv()));
+            }
+
+            var anRecords = locationCsvRepo.FindLocationAn("output");
+
+            using (var writer = new System.IO.StreamWriter(@"C:\work\testAN.csv",true, System.Text.Encoding.GetEncoding("Shift_Jis")))
+            {
+                anRecords.ForEach(r => writer.WriteLine(r.ToCsv()));
+            }
+            var anLocations = locationCsvRepo.FindLocationAn("LocationAN");
+
+            using (var writer = new System.IO.StreamWriter(@"C:\work\testAN.csv",true, System.Text.Encoding.GetEncoding("Shift_Jis")))
+            {
+                anLocations.ForEach(r => writer.WriteLine(r.ToCsv()));
+            }
         }
 
 

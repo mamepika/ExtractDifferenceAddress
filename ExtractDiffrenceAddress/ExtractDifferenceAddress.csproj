@@ -67,6 +67,9 @@
   <ItemGroup>
     <Compile Include="DataReaderUtil.cs" />
     <Compile Include="Controllers\ExtractDifferenceController.cs" />
+    <Compile Include="FormatAddress\Csv\LocationCsvRepository.cs" />
+    <Compile Include="FormatAddress\Csv\Models\LocationAnRecord.cs" />
+    <Compile Include="FormatAddress\Csv\Models\LocationRecord.cs" />
     <Compile Include="FormatAddress\Servicies\ExtractNeighborhoodService.cs" />
     <Compile Include="FormatAddress\ExportAddressServiceFacade.cs" />
     <Compile Include="FormatAddress\Repositories\LocationRepository.cs" />
@@ -170,9 +173,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FormatAddress\Csv\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <COMReference Include="ADOX">
       <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>

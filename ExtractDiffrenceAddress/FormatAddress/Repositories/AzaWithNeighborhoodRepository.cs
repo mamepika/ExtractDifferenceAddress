@@ -168,6 +168,7 @@ namespace ExtractDifferenceAddress.FormatAddress.Repositories
                 }
             }
         }
+
         private string CreateInsertQuery(FormatedAddressRecord record)
         {
             var query = "INSERT INTO " + _tableName + "(" +
