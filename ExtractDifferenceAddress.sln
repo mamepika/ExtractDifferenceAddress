@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractDiffrenceAddress", "ExtractDiffrenceAddress\ExtractDiffrenceAddress.csproj", "{99A95C41-74FE-44C0-8A35-B9F0AB1A6DA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractDifferenceAddress", "ExtractDiffrenceAddress\ExtractDifferenceAddress.csproj", "{99A95C41-74FE-44C0-8A35-B9F0AB1A6DA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractDiffrenceAddressTest", "ExtractDiffrenceAddressTest\ExtractDiffrenceAddressTest.csproj", "{49A458B3-4D2E-4708-B78F-E5C04A0E2A74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractDifferenceAddressTest", "ExtractDiffrenceAddressTest\ExtractDifferenceAddressTest.csproj", "{49A458B3-4D2E-4708-B78F-E5C04A0E2A74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

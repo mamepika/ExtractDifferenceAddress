@@ -153,6 +153,66 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
                    "'" + record.FormatedAddress + "');";
             return query;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
+        public List<FormatedAddressRecord> FindAll()
+        {
+            var query = "SELECT * FROM " + _tableName;
+            using (var dbCommand = new SQLiteCommand())
+            {
+                dbCommand.CommandText = query;
+                dbCommand.Connection = sqlConnection;
+                return Convert(dbCommand.ExecuteReader());
+            }
+        }
+        private List<FormatedAddressRecord> Convert(SQLiteDataReader dataReader)
+        {
+            var records = new List<FormatedAddressRecord>();
+
+            while (dataReader.Read())
+            {
+                var record = new FormatedAddressRecord();
+                record.IDLocation = dataReader["IDLocation"].ToString();
+                record.Location = dataReader["Location"].ToString();
+                record.layer_code = dataReader["layer_code"].ToString();
+                record.ADCD = dataReader["ADCD"].ToString();
+                record.Kanj_Tod = dataReader["Kanj_Tod"].ToString();
+                record.Kanj_Shi = dataReader["Kanj_Shi"].ToString();
+                record.Kanj_Ooa = dataReader["Kanj_Ooa"].ToString();
+                record.Kanj_Aza = dataReader["Kanj_Aza"].ToString();
+                record.Address1 = dataReader["Address1"].ToString();
+                record.MapCode = dataReader["MapCode"].ToString();
+                record.X = dataReader["X"].ToString();
+                record.Y = dataReader["Y"].ToString();
+                record.X_meter = dataReader["X_meter"].ToString();
+                record.Y_meter = dataReader["Y_meter"].ToString();
+                record.AddressCode = dataReader["AddressCode"].ToString();
+                record.PostalCode = dataReader["PostalCode"].ToString();
+                record.AddedPrefectureName = dataReader["AddedPrefectureName"].ToString();
+                record.AddedCityName = dataReader["AddedCityName"].ToString();
+                record.AddedTownName = dataReader["AddedTownName"].ToString();
+                record.AddedChome = dataReader["AddedChome"].ToString();
+                record.AddedBanchi = dataReader["AddedBanchi"].ToString();
+                record.BuildingName = dataReader["BuildingName"].ToString();
+                record.ReadingPrefecture = dataReader["ReadingPrefecture"].ToString();
+                record.ReadingCity = dataReader["ReadingCity"].ToString();
+                record.ReadingTown = dataReader["ReadingTown"].ToString();
+                record.ReadingChome = dataReader["ReadingChome"].ToString();
+                record.BuildingFloor = dataReader["BuildingFloor"].ToString();
+                record.CantFormat = dataReader["CantFormat"].ToString();
+                record.FormatLog = dataReader["FormatLog"].ToString();
+                record.FormatedAddress = dataReader["FormatedAddress"].ToString();
+                records.Add(record);
+
+            }
+            return records;
+        }
+
+
         private void ExecuteQuery(string query)
         {
             using (var dbCommand = new SQLiteCommand())

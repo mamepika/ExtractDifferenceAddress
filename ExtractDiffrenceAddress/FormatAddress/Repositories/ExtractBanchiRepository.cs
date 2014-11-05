@@ -8,57 +8,55 @@ using ExtractDiffrenceAddress.FormatAddress.Models.Entities;
 
 namespace ExtractDiffrenceAddress.FormatAddress.Repositories
 {
-    /// <summary>
-    /// 字・大字除去抽出リポジトリクラス
-    /// </summary>
-    public class ExtractAzaRemoveRepository : IDisposable
+    public class ExtractBanchiRepository : IDisposable
     {
         private SQLiteConnection sqlConnection;
 
-        private string _tableName = "output3";
+        private string _tableName = "output5";
 
-        public ExtractAzaRemoveRepository(string filePath)
+        public ExtractBanchiRepository(string filePath)
         {
             sqlConnection = new SQLiteConnection("Data Source=" + filePath);
             sqlConnection.Open();
             CreateTable();
         }
 
-        public void CreateTable()
+        private void CreateTable()
         {
             var query = "CREATE TABLE " + _tableName + "(" +
-                               "ID TEXT(255) PRIMARY KEY," +
-                               "ChomokuMerge TEXT(255)," +
-                               "IDLocation TEXT(255)," +
-                               "Location TEXT(255)," +
-                               "layer_code TEXT(255)," +
-                               "ADCD TEXT(255)," +
-                               "Kanj_Tod TEXT(255)," +
-                               "Kanj_Shi TEXT(255)," +
-                               "Kanj_Ooa TEXT(255)," +
-                               "Kanj_Aza TEXT(255)," +
-                               "Address1 TEXT(255)," +
-                               "MapCode TEXT(255)," +
-                               "X TEXT(255)," +
-                               "Y TEXT(255)," +
-                               "X_meter TEXT(255)," +
-                               "Y_meter TEXT(255)," +
-                               "AddressCode TEXT(255)," +
-                               "PostalCode TEXT(255)," +
-                               "AddedPrefectureName TEXT(255)," +
-                               "AddedCityName TEXT(255)," +
-                               "AddedTownName TEXT(255)," +
-                               "AddedChome TEXT(255)," +
-                               "AddedBanchi TEXT(255)," +
-                               "BuildingName TEXT(255)," +
-                               "ReadingPrefecture TEXT(255)," +
-                               "ReadingCity TEXT(255)," +
-                               "ReadingTown TEXT(255)," +
-                               "ReadingChome TEXT(255)," +
-                               "BuildingFloor TEXT(255)," +
-                               "CantFormat TEXT(255)," +
-                               "FormatLog TEXT(255)," +
-                               "FormatedAddress TEXT(255))";
+                              "ID TEXT(255) PRIMARY KEY," +
+                              "ExtractedBanchi TEXT(255)," +
+                              "ChomokuMerge TEXT(255)," +
+                              "IDLocation TEXT(255)," +
+                              "Location TEXT(255)," +
+                              "layer_code TEXT(255)," +
+                              "ADCD TEXT(255)," +
+                              "Kanj_Tod TEXT(255)," +
+                              "Kanj_Shi TEXT(255)," +
+                              "Kanj_Ooa TEXT(255)," +
+                              "Kanj_Aza TEXT(255)," +
+                              "Address1 TEXT(255)," +
+                              "MapCode TEXT(255)," +
+                              "X TEXT(255)," +
+                              "Y TEXT(255)," +
+                              "X_meter TEXT(255)," +
+                              "Y_meter TEXT(255)," +
+                              "AddressCode TEXT(255)," +
+                              "PostalCode TEXT(255)," +
+                              "AddedPrefectureName TEXT(255)," +
+                              "AddedCityName TEXT(255)," +
+                              "AddedTownName TEXT(255)," +
+                              "AddedChome TEXT(255)," +
+                              "AddedBanchi TEXT(255)," +
+                              "BuildingName TEXT(255)," +
+                              "ReadingPrefecture TEXT(255)," +
+                              "ReadingCity TEXT(255)," +
+                              "ReadingTown TEXT(255)," +
+                              "ReadingChome TEXT(255)," +
+                              "BuildingFloor TEXT(255)," +
+                              "CantFormat TEXT(255)," +
+                              "FormatLog TEXT(255)," +
+                              "FormatedAddress TEXT(255))";
             try
             {
                 ExecuteQuery(query);
@@ -68,6 +66,7 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
                 Console.WriteLine(ex.Message);
             }
         }
+
         /// <summary>
         /// レコードを追加する
         /// </summary>
@@ -88,15 +87,11 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
                 }
             }
         }
-        /// <summary>
-        /// インサート用のクエリーを作成する
-        /// </summary>
-        /// <param name="record">インサートするレコード</param>
-        /// <returns></returns>
         private string CreateInsertQuery(FormatedAddressRecord record)
         {
             var query = "INSERT INTO " + _tableName + "(" +
                    "[IDLocation]," +
+                   "[ExtractedBanchi]," +
                    "[ChomokuMerge]," +
                    "[Location]," +
                    "[layer_code]," +
@@ -128,6 +123,7 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
                    "[FormatLog] ," +
                    "[FormatedAddress] )VALUES(" +
                    "'" + record.IDLocation + "'," +
+                   "'" + record.ExtractedBanchi + "'," +
                    "'" + record.ChomokMerge + "'," +
                    "'" + record.Location + "'," +
                    "'" + record.layer_code + "'," +
@@ -160,7 +156,6 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
                    "'" + record.FormatedAddress + "');";
             return query;
         }
-
 
         /// <summary>
         /// 
@@ -219,6 +214,7 @@ namespace ExtractDiffrenceAddress.FormatAddress.Repositories
             }
             return records;
         }
+
 
 
         private void ExecuteQuery(string query)

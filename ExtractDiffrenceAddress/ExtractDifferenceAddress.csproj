@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{99A95C41-74FE-44C0-8A35-B9F0AB1A6DA6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExtractDiffrenceAddress</RootNamespace>
+    <AssemblyName>ExtractDiffrenceAddress</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>30f8cb03</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.94.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.94.0\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.94.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.94.0\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.94.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.94.1\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataReaderUtil.cs" />
+    <Compile Include="Controllers\ExtractDifferenceController.cs" />
+    <Compile Include="ExtractNeighborhoodService.cs" />
+    <Compile Include="FormatAddress\ExportAddressServiceFacade.cs" />
+    <Compile Include="FormatAddress\Servicies\ExportAddressService.cs" />
+    <Compile Include="FormatAddress\Servicies\ExtractAzaRemoveService.cs" />
+    <Compile Include="FormatAddress\Servicies\ExtractBanchiService.cs" />
+    <Compile Include="FormatAddress\Servicies\LocationAnService.cs" />
+    <Compile Include="FormatAddress\Models\Entities\PrepareAddress.cs" />
+    <Compile Include="FormatAddress\Servicies\PrepareAddressService.cs" />
+    <Compile Include="FormatAddress\Servicies\RemoveFormatAddressLogService.cs" />
+    <Compile Include="FormatAddress\Servicies\FormatAddressRegisterService.cs" />
+    <Compile Include="FormatAddress\Models\Entities\FormatedAddressRecord.cs" />
+    <Compile Include="FormatAddress\Models\FilePath.cs" />
+    <Compile Include="FormatAddress\Models\FormatedAddressCsvReader.cs" />
+    <Compile Include="FormatAddress\Servicies\AzaWithNeighboorhoodService.cs" />
+    <Compile Include="FormatAddress\Repositories\ExportAddressRepository.cs" />
+    <Compile Include="FormatAddress\Repositories\ExtractAzaRemoveRepository.cs" />
+    <Compile Include="FormatAddress\Repositories\ExtractBanchiRepository.cs" />
+    <Compile Include="FormatAddress\Repositories\FormatAddressRepository.cs" />
+    <Compile Include="FormatAddress\Repositories\AzaWithNeighborhoodRepository.cs" />
+    <Compile Include="FormatAddress\Repositories\LocationAnRepository.cs" />
+    <Compile Include="FormatAddress\Repositories\NeighborhoodRepository.cs" />
+    <Compile Include="FormatAddress\Repositories\PrepareAddressRepository.cs" />
+    <Compile Include="FormatAddress\Repositories\RemoveComplementLogRepository.cs" />
+    <Compile Include="GenrateDB\GenerateDbFileService.cs" />
+    <Compile Include="GenrateDB\Models\Entities\PastFiscalYearAddressRecord.cs" />
+    <Compile Include="GenrateDB\Models\ThisYearCsvReader.cs" />
+    <Compile Include="GenrateDB\Models\PastYearCsvReader.cs" />
+    <Compile Include="GenrateDB\Models\ProcessInfo.cs" />
+    <Compile Include="GenrateDB\Repositories\PastFiscalYearRepository.cs" />
+    <Compile Include="GenrateDB\Repositories\ThisFiscalYearRepository.cs" />
+    <Compile Include="Servicies\ExtractDifferenceService.cs" />
+    <Compile Include="Utils\AddressCodeUtil.cs" />
+    <Compile Include="Views\CountLineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CountLineForm.Designer.cs">
+      <DependentUpon>CountLineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormatAddressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormatAddressForm.Designer.cs">
+      <DependentUpon>FormatAddressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenerateDBForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GenerateDBForm.Designer.cs">
+      <DependentUpon>GenerateDBForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicies\GenerateCsvFileService.cs" />
+    <Compile Include="Models\AddressRecord.cs" />
+    <Compile Include="Models\Schema.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DiffrenceRepository.cs" />
+    <Compile Include="Repositories\MasterRepository.cs" />
+    <Compile Include="Repositories\PastFiscalYearRepository.cs" />
+    <Compile Include="Repositories\ThisFiscalYearRepository.cs" />
+    <EmbeddedResource Include="Views\CountLineForm.resx">
+      <DependentUpon>CountLineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormatAddressForm.resx">
+      <DependentUpon>FormatAddressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GenerateDBForm.resx">
+      <DependentUpon>GenerateDBForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="ADOX">
+      <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>
+      <VersionMajor>6</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.94.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.94.0\build\net45\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューターにはない NuGet パッケージを参照しています。これらをダウンロードするには、NuGet パッケージの復元を有効にしてください。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。不足しているファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.94.0\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.94.0\build\net45\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

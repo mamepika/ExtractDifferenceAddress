@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ExtractDiffrenceAddress.FormatAddress;
+using ExtractDiffrenceAddress.FormatAddress.Servicies;
 
 namespace ExtractDiffrenceAddress.Views
 {
@@ -44,20 +45,13 @@ namespace ExtractDiffrenceAddress.Views
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var formatService = new RemoveFormatAddressLogService(@"C:\work\03_Iwate_output.db");
-            formatService.RemoveLog();
+            var dbFiles = System.IO.Directory.GetFiles(folederPathText.Text, "*.db").ToList();
 
-            var neighService = new AzaWithNeighboorhoodService(@"C:\work\03_Iwate_output.db");
-
-            neighService.ExtractAzaWithNeighborhood();
-
-            var extractService = new ExtractAzaRemoveService(@"C:\work\03_Iwate_output.db");
-
-            extractService.ExtractAzaRemove();
-
-            var neighborService = new ExtractNeighborhoodService(@"C:\work\03_Iwate_output.db");
-
-            neighborService.ExtractNeighborhood();
+            dbFiles.ForEach(db =>
+            {
+                var facade = new ExportAddressServiceFacade(db);
+                facade.ExportAddress();
+            });
         }
 
 

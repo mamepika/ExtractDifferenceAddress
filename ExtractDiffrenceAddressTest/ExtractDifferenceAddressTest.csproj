@@ -85,9 +85,9 @@
     <Compile Include="AddressCodeUtilTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExtractDiffrenceAddress\ExtractDiffrenceAddress.csproj">
+    <ProjectReference Include="..\ExtractDiffrenceAddress\ExtractDifferenceAddress.csproj">
       <Project>{99a95c41-74fe-44c0-8a35-b9f0ab1a6da6}</Project>
-      <Name>ExtractDiffrenceAddress</Name>
+      <Name>ExtractDifferenceAddress</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
