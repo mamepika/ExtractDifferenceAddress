@@ -64,7 +64,6 @@ namespace ExtractDifferenceAddress.Views
                 var createCsvService = new CreateLocationCsvService(db);
                 createCsvService.CreateCsvFile();
             });
-
             MessageBox.Show("処理が完了しました");
         }
 

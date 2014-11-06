@@ -122,17 +122,17 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
         /// </summary>
         /// <param name="tableName"></param>
         /// <returns></returns>
-        private bool IsExists(string tableName)
+        public bool IsExists(string tableName)
         {
-            var query = "select count(*) from sqlite_master where type='table' and name='" + tableName +"';";
+            var query = "select count() from sqlite_master where type='table' and name='" + tableName +"';";
             using (var sqlCommand = new SQLiteCommand())
             {
                 sqlCommand.CommandText = query;
                 sqlCommand.Connection = sqlConnection;
 
-                var count = (int)sqlCommand.ExecuteScalar();
+                var count = (long)sqlCommand.ExecuteScalar();
 
-                return (1 == count);
+                return (count == 1);                
             }
         }
         /// <summary>
