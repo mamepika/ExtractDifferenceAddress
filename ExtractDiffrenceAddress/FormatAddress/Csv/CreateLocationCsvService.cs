@@ -28,7 +28,8 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
         {
             _dbFilePath = dbFilePath;
             _outputFilePath = System.IO.Path.GetDirectoryName(_dbFilePath) + 
-                                          "\\" +  Path.GetFileNameWithoutExtension(_dbFilePath);
+                                          "\\Csv\\" +  Path.GetFileNameWithoutExtension(_dbFilePath);
+            System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(_dbFilePath) + "\\Csv\\");
         }
 
         /// <summary>
@@ -41,11 +42,19 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
                 using (var locationCsvRepo = new LocationCsvRepository(_dbFilePath))
                 {
                     var locationRecords = locationCsvRepo.FindLocation("output");
-                    locationRecords.Concat(locationCsvRepo.FindLocation("Location"));
-                    CreateLocationCsvFile(locationRecords);
 
                     var locationAnRecords = locationCsvRepo.FindLocationAn("output");
-                    locationAnRecords.Concat(locationCsvRepo.FindLocationAn("LocationAN"));
+
+                    if (locationCsvRepo.IsExists("Location"))
+                    {
+                        locationRecords.Concat(locationCsvRepo.FindLocation("Location"));
+                    }
+
+                    if (locationCsvRepo.IsExists("LocationAN"))
+                    {
+                        locationAnRecords.Concat(locationCsvRepo.FindLocationAn("LocationAN"));
+                    }
+                    CreateLocationCsvFile(locationRecords);                  
                     CreateLocationAnCsvFile(locationAnRecords);
                 }
             }
@@ -63,8 +72,8 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
         {
             using (var writer = new StreamWriter(_outputFilePath + "_Location.csv", true, encode))
             {
-                //TODO ヘッダー文字列
-                writer.WriteLine("");
+                
+                writer.WriteLine("IDLocation,Location,IDCountry,IDTown,PostalCode,MapCode,X_meter,Y_meter,IDLocationManual,X,Y");
                 records.ForEach(re => writer.WriteLine(re.ToCsv()));
             }
         }
@@ -77,8 +86,8 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv
         {
             using (var writer = new StreamWriter(_outputFilePath + "_LocationAN.csv", true, encode))
             {
-                //TODO ヘッダー文字列
-                writer.WriteLine("");
+                
+                writer.WriteLine("IDLocationAN,IDLocation,Location,IDCountry,Language,Manual");
                 anRecords.ForEach(re => writer.WriteLine(re.ToCsv()));
             }
         }
