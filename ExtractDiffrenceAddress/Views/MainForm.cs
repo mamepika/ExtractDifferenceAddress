@@ -149,6 +149,12 @@ namespace ExtractDifferenceAddress
             var formatAddressForm = new Views.FormatAddressForm();
             formatAddressForm.ShowDialog();
         }
+
+        private void 読み仮名修正ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var yomiForm = new Views.YomiganaForm();
+            yomiForm.ShowDialog();
+        }
     }
 
 

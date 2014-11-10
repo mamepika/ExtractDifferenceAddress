@@ -41,6 +41,7 @@
             this.差分抽出DB作成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cSV行数カウントToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.住所整形ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.読み仮名修正ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,7 +129,8 @@
             this.ツールToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.差分抽出DB作成ToolStripMenuItem,
             this.cSV行数カウントToolStripMenuItem,
-            this.住所整形ToolStripMenuItem});
+            this.住所整形ToolStripMenuItem,
+            this.読み仮名修正ToolStripMenuItem});
             this.ツールToolStripMenuItem.Name = "ツールToolStripMenuItem";
             this.ツールToolStripMenuItem.Size = new System.Drawing.Size(56, 22);
             this.ツールToolStripMenuItem.Text = "ツール";
@@ -153,6 +155,13 @@
             this.住所整形ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.住所整形ToolStripMenuItem.Text = "住所整形";
             this.住所整形ToolStripMenuItem.Click += new System.EventHandler(this.住所整形ToolStripMenuItem_Click);
+            // 
+            // 読み仮名修正ToolStripMenuItem
+            // 
+            this.読み仮名修正ToolStripMenuItem.Name = "読み仮名修正ToolStripMenuItem";
+            this.読み仮名修正ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.読み仮名修正ToolStripMenuItem.Text = "読み仮名修正";
+            this.読み仮名修正ToolStripMenuItem.Click += new System.EventHandler(this.読み仮名修正ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -196,6 +205,7 @@
         private System.Windows.Forms.ToolStripMenuItem 差分抽出DB作成ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cSV行数カウントToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 住所整形ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 読み仮名修正ToolStripMenuItem;
     }
 }
 
