@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using ExtractDiffrenceAddress.Utils;
+using ExtractDifferenceAddress.Utils;
 
 namespace ExtractDiffrenceAddressTest
 {

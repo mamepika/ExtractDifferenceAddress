@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ExtractDiffrenceAddress.GenrateDB;
-using ExtractDiffrenceAddress.GenrateDB.Models;
+using ExtractDifferenceAddress.GenrateDB;
+using ExtractDifferenceAddress.GenrateDB.Models;
 
 namespace ExtractDiffrenceAddressTest
 {

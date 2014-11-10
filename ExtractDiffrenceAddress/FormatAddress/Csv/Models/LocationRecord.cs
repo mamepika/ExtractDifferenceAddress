@@ -60,5 +60,23 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv.Models
 
             return line.ToString();
         }
+
+        public string ToCsv(int idLocation)
+        {
+            var line = new StringBuilder();
+            line.Append(idLocation.ToString()).Append(",");
+            line.Append(Location).Append(",");
+            line.Append(IDCountry).Append(",");
+            line.Append(IDTown).Append(",");
+            line.Append(PostalCode).Append(",");
+            line.Append(MapCode).Append(",");
+            line.Append(X_meter).Append(",");
+            line.Append(Y_meter).Append(",");
+            line.Append(IDLocationManual).Append(",");
+            line.Append(X).Append(",");
+            line.Append(Y);
+
+            return line.ToString();
+        }
     }
 }

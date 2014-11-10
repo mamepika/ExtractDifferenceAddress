@@ -70,6 +70,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AllocationId\AllocationIdServiceTest.cs" />
     <Compile Include="ExtractDifference\AddressRecordTest.cs" />
     <Compile Include="ExtractDifference\DiffrenceRepositoryTest.cs" />
     <Compile Include="ExtractDifference\ExtractDifferenceServiceTest.cs" />

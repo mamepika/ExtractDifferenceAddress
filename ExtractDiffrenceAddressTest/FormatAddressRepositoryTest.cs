@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using ExtractDiffrenceAddress.FormatAddress.Repositories;
-using ExtractDiffrenceAddress.Utils;
+using ExtractDifferenceAddress.FormatAddress.Repositories;
+using ExtractDifferenceAddress.Utils;
 
 namespace ExtractDiffrenceAddressTest
 {

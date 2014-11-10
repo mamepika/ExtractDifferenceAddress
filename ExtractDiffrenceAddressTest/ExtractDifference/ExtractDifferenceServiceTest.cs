@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ExtractDiffrenceAddress.Servicies;
+using ExtractDifferenceAddress.Servicies;
 
 namespace ExtractDiffrenceAddressTest
 {

@@ -65,8 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllocationId\LocationAnCsvReader.cs" />
+    <Compile Include="AllocationId\LocationCsvReader.cs" />
+    <Compile Include="AllocationId\MergeCsvService.cs" />
     <Compile Include="DataReaderUtil.cs" />
     <Compile Include="Controllers\ExtractDifferenceController.cs" />
+    <Compile Include="AllocationId\AllocationIdService.cs" />
     <Compile Include="FormatAddress\Csv\CreateLocationCsvService.cs" />
     <Compile Include="FormatAddress\Csv\LocationCsvRepository.cs" />
     <Compile Include="FormatAddress\Csv\Models\LocationAnRecord.cs" />
@@ -111,6 +115,12 @@
     <Compile Include="Views\CountLineForm.Designer.cs">
       <DependentUpon>CountLineForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormatAddressForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,14 +148,11 @@
     <Compile Include="Repositories\MasterRepository.cs" />
     <Compile Include="Repositories\PastFiscalYearRepository.cs" />
     <Compile Include="Repositories\ThisFiscalYearRepository.cs" />
-    <Compile Include="Views\YomiganaForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\YomiganaForm.Designer.cs">
-      <DependentUpon>YomiganaForm.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Views\CountLineForm.resx">
       <DependentUpon>CountLineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormatAddressForm.resx">
       <DependentUpon>FormatAddressForm.cs</DependentUpon>
@@ -166,9 +173,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\YomiganaForm.resx">
-      <DependentUpon>YomiganaForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -183,7 +187,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="AllocationId\Models\" />
+    <Folder Include="LandMark\" />
+  </ItemGroup>
   <ItemGroup>
     <COMReference Include="ADOX">
       <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>

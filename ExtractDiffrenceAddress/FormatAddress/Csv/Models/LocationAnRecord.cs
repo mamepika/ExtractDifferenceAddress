@@ -58,5 +58,18 @@ namespace ExtractDifferenceAddress.FormatAddress.Csv.Models
 
             return line.ToString();
         }
+
+        public string ToCsv(int idLocation)
+        {
+            var line = new StringBuilder();
+            line.Append(idLocation.ToString()).Append(",");
+            line.Append(idLocation.ToString()).Append(",");
+            line.Append(Location).Append(",");
+            line.Append(IDCountry).Append(",");
+            line.Append(Language).Append(",");
+            line.Append(Manual);
+
+            return line.ToString();
+        }
     }
 }
