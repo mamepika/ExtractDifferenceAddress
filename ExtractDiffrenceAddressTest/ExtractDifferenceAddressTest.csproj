@@ -80,6 +80,7 @@
     <Compile Include="FormatAddressRepositoryTest.cs" />
     <Compile Include="FormatedAddressCsvReaderTest.cs" />
     <Compile Include="GenerateDbFileServiceTest.cs" />
+    <Compile Include="LandMarkCsvReaderTest.cs" />
     <Compile Include="PastYearCsvReaderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExtractDifference\ThisFiscalYearRepositoryTest.cs" />

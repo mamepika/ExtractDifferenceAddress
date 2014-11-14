@@ -161,7 +161,7 @@
             this.読み仮名修正ToolStripMenuItem.Name = "読み仮名修正ToolStripMenuItem";
             this.読み仮名修正ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.読み仮名修正ToolStripMenuItem.Text = "読み仮名修正";
-            this.読み仮名修正ToolStripMenuItem.Click += new System.EventHandler(this.読み仮名修正ToolStripMenuItem_Click);
+            
             // 
             // MainForm
             // 

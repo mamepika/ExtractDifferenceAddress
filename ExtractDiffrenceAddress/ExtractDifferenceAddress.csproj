@@ -33,6 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClosedXML">
+      <HintPath>..\packages\ClosedXML.0.75.0\lib\net40-client\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -71,6 +78,7 @@
     <Compile Include="DataReaderUtil.cs" />
     <Compile Include="Controllers\ExtractDifferenceController.cs" />
     <Compile Include="AllocationId\AllocationIdService.cs" />
+    <Compile Include="FormatAddress\Csv\ConvertLocationExcelService.cs" />
     <Compile Include="FormatAddress\Csv\CreateLocationCsvService.cs" />
     <Compile Include="FormatAddress\Csv\LocationCsvRepository.cs" />
     <Compile Include="FormatAddress\Csv\Models\LocationAnRecord.cs" />
@@ -107,8 +115,18 @@
     <Compile Include="GenrateDB\Models\ProcessInfo.cs" />
     <Compile Include="GenrateDB\Repositories\PastFiscalYearRepository.cs" />
     <Compile Include="GenrateDB\Repositories\ThisFiscalYearRepository.cs" />
+    <Compile Include="Category\CategoryCsvReader.cs" />
+    <Compile Include="Category\CategoryRepository.cs" />
+    <Compile Include="Category\Entities\Classification.cs" />
+    <Compile Include="Category\CountClassificationService.cs" />
+    <Compile Include="Category\Entities\CategoryInfo.cs" />
+    <Compile Include="Category\Entities\LandMarkData.cs" />
+    <Compile Include="Category\LandMarkCsvReader.cs" />
+    <Compile Include="Category\LandMarkRepository.cs" />
+    <Compile Include="Category\RegisterLandMarkService.cs" />
     <Compile Include="Servicies\ExtractDifferenceService.cs" />
     <Compile Include="Utils\AddressCodeUtil.cs" />
+    <Compile Include="Utils\DbConnectionUtil.cs" />
     <Compile Include="Views\CountLineForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,7 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AllocationId\Models\" />
-    <Folder Include="LandMark\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="ADOX">
